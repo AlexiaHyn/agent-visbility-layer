@@ -1,0 +1,18 @@
+{
+  "name": "pi-chat",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/run.mjs server.mjs",
+    "check": "node scripts/run.mjs scripts/check.mjs",
+    "test": "node scripts/run.mjs scripts/test.mjs"
+  },
+  "dependencies": {
+    "@earendil-works/pi-coding-agent": "1.4.0",
+    "jiti": "2.7.0"
+  },
+  "optionalDependencies": {
+    "node-win-x64": "^24.22.2"
+  }
+}

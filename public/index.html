@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>Pi Chat</title><link rel="stylesheet" href="/styles.css"><script type="module" src="/app.js"></script></head>
+<body>
+  <div class="app">
+    <aside id="sidebar" aria-label="Conversations">
+      <a class="brand" href="/" aria-label="Pi Chat home"><span class="logo">π</span> <span>Pi Chat</span><span class="local-badge">LOCAL</span></a>
+      <button id="new-chat" class="new-chat"><span>◇</span> New chat <kbd>Ctrl K</kbd></button>
+      <label class="search"><span>⌕</span><input id="search" placeholder="Search chats" aria-label="Search chats"></label>
+      <div class="section-label">Your conversations</div>
+      <nav id="history" aria-label="Chat history"></nav>
+      <div class="sidebar-bottom"><div class="workspace"><span class="workspace-icon">⌘</span><div><strong>Lab workspace</strong><small>Read and explore files</small></div></div><button id="theme" class="theme-button">◐ <span>Switch to dark mode</span></button><div class="profile"><div class="avatar">Y</div><div><strong>Your workspace</strong><small>Saved on this computer</small></div><span class="online-dot"></span></div></div>
+    </aside>
+    <main id="chat-main">
+      <header><div class="header-left"><button id="menu" class="icon-button" aria-label="Toggle sidebar" aria-expanded="true">☰</button><span class="header-title">Pi <span class="muted">Chat</span></span><span class="model-pill" id="model-label">Connecting…</span></div><span class="private-label"><span class="online-dot"></span> Local workspace</span></header>
+      <div class="project-picker"><label for="project-select">Implementation project</label><select id="project-select"><option value="">Chat only — no implementation project</option></select><button id="create-project">New project</button></div>
+      <div id="notice" role="alert" hidden></div>
+      <section id="scroll-area" aria-label="Conversation">
+        <div id="welcome"><div class="welcome-symbol">π<span>✦</span></div><div class="eyebrow">YOUR LAB, ONE CONVERSATION AWAY</div><h1>What are we exploring today?</h1><p>Think through an idea, explore your files, or ask a question.<br>Your pi agent is ready when you are.</p><div class="suggestions"><button data-prompt="Use the read tool to read project.txt and summarize it."><span>▤</span><strong>Explore the project</strong><small>Get a summary of project.txt</small><b>↗</b></button><button data-prompt="Read team.txt and tell me about the team."><span>♧</span><strong>Meet the team</strong><small>See who’s working on what</small><b>↗</b></button><button data-prompt="Use the read tool to read project.txt and team.txt, then summarize how the team supports the project."><span>◇</span><strong>Connect the dots</strong><small>Explore the project and team</small><b>↗</b></button></div><div class="welcome-note"><span class="online-dot"></span> Powered by your existing pi lab agent</div></div>
+        <section id="project-plan" class="project-plan" aria-label="Implementation plan" hidden></section>
+        <div id="messages" role="log" aria-label="Chat messages" aria-live="polite"></div>
+      </section>
+      <div class="composer-area"><div id="activity" role="status"></div><form id="composer"><textarea id="prompt" rows="1" maxlength="16000" placeholder="Message Pi…" aria-label="Message Pi"></textarea><div class="composer-toolbar"><span class="tools-hint">✦ <span>Lab tools enabled</span></span><div><span class="enter-hint">Enter to send</span><button id="send" type="submit" aria-label="Send message">↑</button><button id="stop" type="button" aria-label="Stop response" hidden>■</button></div></div></form><p class="composer-note">Pi can make mistakes. Review its responses and tool requests.</p></div>
+    </main>
+    <section id="project-map-panel" class="project-map-panel" aria-label="Project execution map" hidden><div id="project-map-resizer" class="project-map-resizer" role="separator" tabindex="0" aria-orientation="vertical" aria-label="Resize chat and plan execution details" aria-controls="chat-main project-map-panel" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" title="Drag to resize. Use left and right arrow keys when focused."></div><div class="map-toolbar"><strong>Plan execution details</strong><label class="map-branch-label">Map branch<select id="map-branch-select" aria-label="Review project map branches"></select></label><div class="map-edit-actions"><button id="toggle-plan-edit">Edit plan</button><button id="confirm-plan-edits" hidden>Confirm edits</button><button id="discard-plan-edits" hidden>Discard draft</button></div><button id="close-project-map" aria-label="Close project map">Close ×</button></div><p id="historical-map-notice" class="draft-notice" hidden>Historical map branch — inspection only. Select the latest branch to edit or run work.</p><p id="draft-notice" class="draft-notice" hidden>Unsaved draft — closing edit mode or the map discards changes. Confirm requests a repair proposal; approval is required before code changes.</p><div id="project-map" class="project-map" aria-label="Hierarchical section map"></div><section id="section-inspector" class="section-inspector" aria-label="Selected section details"></section></section>
+  </div>
+  <dialog id="project-dialog"><div class="map-toolbar"><h2 id="project-dialog-title"></h2><button id="close-project-dialog" aria-label="Close dialog">×</button></div><form id="project-dialog-form"></form></dialog>
+</body></html>

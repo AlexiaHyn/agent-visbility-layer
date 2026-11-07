@@ -1,0 +1,13 @@
+node_modules/
+.npm-cache/
+.browser-profile/
+data/
+.env
+*.log
+test-results/
+
+# Local credentials and generated test projects
+.env.*
+!.env.example
+snake-map-test/
+taskboard/
